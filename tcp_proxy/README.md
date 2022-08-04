@@ -58,3 +58,6 @@ web服务 ==> `test_server` 目录下，执行 `python3 -m http.server --bind 12
 00c0    6f 20 73 73 72 65 6d 65 78 3c 2f 70 3e 0a               o ssremex</p>.
 [*] No more data. Closing connections
 ```
+
+### 扩展
+可改为不指定远程服务的，http代理
