@@ -1,6 +1,8 @@
 # NetCat
 
-`nc`反弹shell
+> python socket通信
+
+###`nc`反弹shell
 
 **反向**
 
