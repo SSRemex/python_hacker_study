@@ -3,6 +3,6 @@
 
 环境：Python3
 
-IDE：Pycharm
+IDE：VScode
 
 平台：WSL -> Ubuntu 20.04
