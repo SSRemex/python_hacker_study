@@ -8,6 +8,8 @@
 ## ARP投毒
 `arper.py`
 
+## Pcap处理
+
 ## 笔记
 ### sniff
 ```
@@ -24,4 +26,6 @@ from scapy.all import sniff
 > `count`表示嗅探包的个数，如果置空则一直嗅探
 > 
 > `store`为0则不会将数据保留在内存
+
+`Ether` `ARP` `IP`等类，用`/`进行叠层
 

