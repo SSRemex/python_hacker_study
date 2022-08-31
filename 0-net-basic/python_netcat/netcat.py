@@ -15,9 +15,16 @@ def execute(cmd):
         return
     try:
         output = subprocess.check_output(shlex.split(cmd))
-    except:
-        return "Error"
-    return output.decode()
+    except Exception as e:
+        return str(e)
+    try:
+        out = output.decode()
+    except UnicodeDecodeError:
+        out = output.decode("gbk")
+    else:
+        out = str(Exception)
+
+    return out
 
 
 # 参数接收函数
@@ -113,6 +120,7 @@ class NetCat:
                     while "\n" not in cmd_buffer.decode():
                         cmd_buffer += client_socket.recv(1024)
                     cmd = cmd_buffer.decode()
+                    print(f"cmd ==> {cmd}")
                     if cmd.strip() == "exit":
                         print("killed!")
                         client_socket.send("killed!".encode())
